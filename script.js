@@ -150,6 +150,45 @@
   // Expose for inline onclick
   window.downloadBarChart = downloadBarChart;
 
+  // ── Username validation ─────────────────────────────────────────────────────
+
+  function validateUsername(value) {
+    if (value.length < 5) return 'Username must be at least 5 characters long.';
+    if (!/[A-Z]/.test(value)) return 'Username must contain at least 1 uppercase letter.';
+    if (!/[0-9]/.test(value)) return 'Username must contain at least 1 number.';
+    if (!/[^A-Za-z0-9]/.test(value)) return 'Username must contain at least 1 special character.';
+    return null;
+  }
+
+  function submitUsername() {
+    const input      = document.getElementById('username');
+    const errorEl   = document.getElementById('username-error');
+    const successEl = document.getElementById('username-success');
+    const error = validateUsername(input.value);
+    if (error) {
+      input.classList.add('is-invalid');
+      input.classList.remove('is-valid');
+      errorEl.textContent = error;
+      errorEl.classList.remove('d-none');
+      successEl.classList.add('d-none');
+      successEl.textContent = '';
+    } else {
+      input.classList.remove('is-invalid');
+      input.classList.add('is-valid');
+      errorEl.textContent = '';
+      errorEl.classList.add('d-none');
+      successEl.textContent = `Welcome, ${input.value}!`;
+      successEl.classList.remove('d-none');
+    }
+  }
+
+  window.submitUsername = submitUsername;
+
+  // Expose pure functions for unit testing (Node.js / Jest)
+  if (typeof module !== 'undefined') {
+    module.exports = { validateUsername };
+  }
+
   function updateChart() {
     const { income, expenses } = getData();
 

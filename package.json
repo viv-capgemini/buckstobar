@@ -1,0 +1,24 @@
+{
+  "name": "buckstobar",
+  "version": "1.0.0",
+  "description": "AI Github Co-pilot repo",
+  "main": "script.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viv-capgemini/buckstobar.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/viv-capgemini/buckstobar/issues"
+  },
+  "homepage": "https://github.com/viv-capgemini/buckstobar#readme",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
+  }
+}
