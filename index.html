@@ -184,6 +184,14 @@
         </div>
 
         <!-- Bar chart -->
+        <div class="d-flex justify-content-end mb-2">
+          <button
+            id="downloadChartBtn"
+            class="btn btn-sm"
+            style="background-color: var(--brand); color: #fff;"
+            onclick="downloadBarChart()"
+          >&#8681; Download PNG</button>
+        </div>
         <div class="card shadow-sm">
           <div class="card-body">
             <canvas id="barChart"></canvas>

@@ -139,6 +139,17 @@
     });
   }
 
+  function downloadBarChart() {
+    if (!barChart) return;
+    const link = document.createElement('a');
+    link.download = 'bucks2bar-chart.png';
+    link.href = document.getElementById('barChart').toDataURL('image/png');
+    link.click();
+  }
+
+  // Expose for inline onclick
+  window.downloadBarChart = downloadBarChart;
+
   function updateChart() {
     const { income, expenses } = getData();
 
